@@ -1,10 +1,5 @@
 const notFound=(req,res)=>{
-    res.status(404).writeHTML(`
-        <h1>
-            404 - Not Found :(
-                </h1>
-    `)
-
+    res.status(404).writeJSON({"Error":" 404 Not Found -_- "})
 }
 
 module.exports = {notFound}
