@@ -1,8 +1,8 @@
-const {Router} = require("../utils/core/Router")
+const {Router} = require("../utils/core/Router.js")
 const { welcomeMessage } = require("../controllers/welcomemsg.js")
-const {notFound} = require("../controllers/notfound")
-const {getSysInfo} = require("../controllers/os/sysinfo")
+const {notFound} = require("../controllers/notfound.js")
 
+const {osRouter}=require('./os.router.js')
 
 const router = new Router()
 
@@ -10,6 +10,6 @@ const router = new Router()
 router.get("/",welcomeMessage)
 router.all("/*",notFound )
 
-router.get("/os/info",getSysInfo)
+router.use(osRouter)
 
 module.exports={router}
